@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<form action=""  [formGroup] = "ContactUs" (ngsubmit)="contact() ">
+    <input type="text" placeholder="name" formControlName="name"><br>
+    <span style="color:red;" *ngIf="name && name.invalid && name.touched">this input field invalide</span>
+
+    <input type="email" placeholder="email" formControlName="email"><br>
+    <span style="color:red;" *ngIf="email && email.invalid && email.touched">this input field invalide</span>
+
+    <input type="number" placeholder="phone" formControlName="phone"><br>
+    <span style="color:red;" *ngIf="phone && phone.invalid && phone.touched">this input field invalide</span>
+    
+    <textarea name="message"  cols="30" rows="10" placeholder="message" formControlName="message"></textarea>
+    
+    <button [disabled]="ContactUs.invalid">submit</button>
+ </form>

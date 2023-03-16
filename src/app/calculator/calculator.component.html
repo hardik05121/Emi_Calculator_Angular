@@ -1,0 +1,137 @@
+<div class="firstContainer">
+  <form>
+  <hr>
+    <label class="lbl1">Loan Amount is (P) </label>
+    <input type="text"   [value]="p" class="input1"> <br><br>
+    <input type="range" (change)="amountchange($event)" min="100000" max="5000000" class="range1"><br><br><hr>
+  
+  
+    <label class="lbl2">No. of Month is(N)</label>
+    <input type="text"  [value]="n" class="input2"><br><br>
+    <input type="range" (change)="monthchange($event)" min="120" max="360" class="range2"><br><br><hr>
+  
+  
+    <label class="lbl3">Rate of intrest(R)</label>
+    <input type="text"  [value]="r" class="input3"><br><br>
+    <input type="range"  (change)="ratechange($event)" value="10" min="8.0" step="0.1" max="16.0" class="range3"><br><br><hr>
+  
+  
+    <button type="button" class="btnn" (click)="calculate()" >Calculate</button><br><br> <hr>
+  
+  </form>
+  </div>
+  
+  
+  
+  
+  <div class="secondContainer"><hr>
+  
+  <p>Monthly EMI:<br><b>{{emi | currency:"INR"}}</b></p><hr>
+  
+  <p>Total Interest: <br> <b> {{totalinterest | currency:"INR"}}</b></p><hr>
+  
+  <p>Payable Amount: <br> <b> {{totalpayment | currency:"INR"}}</b></p><hr>
+  
+  <p>Interest Percentage: <br> <b>{{percentage  | currency:"INR"}}%</b></p><hr>
+  
+  
+  </div>
+  <br>
+  
+  
+   
+  <div class="tablle">
+  <table border="1">
+  <thead>
+    <tr>
+      <th>Payment No.</th>
+      <th>Begining balance</th>
+      <th>Emi</th>
+      <th>Principal</th>
+      <th>Intrest</th>
+      <th>Ending Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of payments">
+      <td>{{item.paymentNo}}</td>
+      <td>{{item.beginningBalance}}</td>
+      <td>{{item.emi}}</td>
+      <td>{{item.principal}}</td>
+      <td>{{item.interest}}</td>
+      <td>{{item.endingBalance}}</td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
+  
+  
+  
+  
+  
+  
+
+    <!-- https://github.com/hardik05121/Emi_Calculator_Angular.git -->
+
+<!-- this is extara line code -->
+
+<!-- <div class="conatiner">
+    <h1 class="blue-text">EMI Loan Calculator</h1>
+    <div class="form_input">
+        <div class="value">
+            Loan Amount is:-
+            <input type="text" [(ngModel)]="p" placeholder="Principal loan amount" (keyup)="result()" (keydown)="result()">
+        </div>
+        <div class="value">
+            No. of Month is:-
+            <input type="text" [(ngModel)]="n" placeholder="Loan tenure in months"  (keyup)="result()" (keydown)="result()">
+        </div>
+        <div class="value">
+            Rate of Interest [ROI] is:-
+            <input type="text" [(ngModel)]="r" placeholder="Monthly interest rate"  (keyup)="result()" (keydown)="result()">
+        </div>
+        </div>
+</div>
+
+<div class="container-fluid">
+    Monthly EMI:-
+    {{emi}}
+</div>
+<div class="container-fluid">
+    Total Interest:-
+    {{totalinterest}}
+</div>
+<div class="container-fluid">
+    Payable Amount:-
+    {{payableamount}}
+</div>
+<div class="container-fluid">
+    Interest Persentage:-
+    {{Interestpersentage}}
+</div>
+
+
+<table class="Cal_data" border="1" >
+    <thead>
+        <tr>
+            <td>payment No.</td>
+            <td>Beggining Balance</td>
+            <td>EMI</td>
+            <td>Principal</td>
+            <td>Interest</td>
+            <td>Ending Balance</td>
+        </tr>
+       
+    </thead>
+    <tbody>
+        <tr *ngFor="let payment of payment">
+        <td>{{payment.id}}</td>
+        <td>{{payment.beg_balance}}</td>
+        <td>{{payment.emi}}</td>
+        <td>{{payment.principal}}</td>
+        <td>{{payment.interest}}</td>
+        <td>{{payment.endingbalance}}</td>
+        </tr>
+        
+    </tbody>
+</table> -->
